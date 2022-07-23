@@ -4,6 +4,9 @@ using UnityEngine;
 
 //Will Mon Script
 //Date: 07/22/2022
+
+public enum BossPhase { IDLE, WONDER, SEARCH, INSIGHT }
+
 public class BossTriggerBehavior : MonoBehaviour
 {
     [SerializeField]
