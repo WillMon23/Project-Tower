@@ -24,6 +24,11 @@ public class FieldOfView : MonoBehaviour
 
     bool _canSeePlayer;
 
+    public float Radius { get => _radius; }
+    public float Angle { get => _angle; }
+    public bool CanSeePlayer { get => _canSeePlayer; }
+    public GameObject PlayerRef { get => _playerRef; }
+
     // Start is called before the first frame update
     void Start()
     {
