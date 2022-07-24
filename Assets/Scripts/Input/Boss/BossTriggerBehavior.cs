@@ -12,19 +12,23 @@ public class BossTriggerBehavior : MonoBehaviour
     [SerializeField]
     private Transform _player;
 
-    //Testing Purposese
-    private float _insanityGauge = 0;
+    private FieldOfView _fieldOfView;
 
     private BossMovementBehavior _bossMovement;
     // Start is called before the first frame update
     void Start()
     {
         _bossMovement = GetComponent<BossMovementBehavior>();
+        _fieldOfView = GetComponent<FieldOfView>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        _bossMovement.Direction = (_player.position - transform.position).normalized;
+        if (_fieldOfView.CanSeePlayer)
+            _bossMovement.Direction = (_player.position - transform.position).normalized;
+
+        else
+            _bossMovement.Direction = Vector3.zero;
     }
 }

@@ -229,7 +229,9 @@ GameObject:
   - component: {fileID: 484480400}
   - component: {fileID: 484480399}
   - component: {fileID: 484480398}
-  m_Layer: 0
+  - component: {fileID: 484480404}
+  - component: {fileID: 484480403}
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -323,12 +325,38 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 484480397}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.23425293, y: 1.0000002, z: -4.4519043}
+  m_LocalPosition: {x: 0.23425293, y: 1.0000002, z: 21.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &484480403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484480397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae1121f1e80977e4aac166730bb1a49e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 10
+  _maxSpeed: 0
+--- !u!114 &484480404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484480397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f797a41abcf916e4199b27cf894a2886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &848167781
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,7 +450,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 848167781}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.64, y: 1.4362, z: 10.78}
+  m_LocalPosition: {x: -0.12, y: 1.4362, z: -1.19}
   m_LocalScale: {x: 1, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -482,14 +510,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d0169b3be2b3734f9e9c002eff382df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radius: 5
-  _angle: 360
+  _radius: 30
+  _angle: 89
   _targetMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   _obstruction:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
 --- !u!1 &1675680121
 GameObject:
   m_ObjectHideFlags: 0
