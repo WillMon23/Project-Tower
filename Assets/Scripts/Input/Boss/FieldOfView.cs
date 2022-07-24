@@ -33,8 +33,18 @@ public class FieldOfView : MonoBehaviour
     void Start()
     {
         _playerRef = GameObject.FindGameObjectWithTag("Player");
-        _fovRoutine = RoutineBehaviour.Instance.StartNewTimedAction(arg => FieldOfViewCheck(), TimedActionCountType.SCALEDTIME, .02f);
+        StartCoroutine(FOVRoutine());
 
+    }
+
+    private IEnumerator FOVRoutine()
+    {
+        WaitForSeconds wait = new WaitForSeconds(.02f);
+        while (true)
+        {
+            yield return wait;
+            FieldOfViewCheck();
+        }
     }
 
     private void FieldOfViewCheck()
@@ -44,7 +54,7 @@ public class FieldOfView : MonoBehaviour
         if (rangeCheck.Length != 0)
         {
             Transform target = rangeCheck[0].transform;
-            Vector3 directionToTarget = (transform.position - target.position).normalized;
+            Vector3 directionToTarget = (target.position - transform.position).normalized;
 
             if (Vector3.Angle(transform.forward, directionToTarget) < _angle / 2)
             {
