@@ -2,37 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovementBehavior : MonoBehaviour
+public class PlayerRotationBehavior : MonoBehaviour
 {
-    //The speed that the player moves
-    [SerializeField]
-    private float _moveSpeed;
-    [SerializeField]
-    private float _rotateSpeed;
-    //The rigidbody of the player
-    private Rigidbody _rigidbody;
-
     private Vector3 _movePosition;
     private Quaternion _targetRotation;
     private float _rotationTime;
     private Quaternion _previousRotation;
-
     // Start is called before the first frame update
     void Start()
     {
-        _rigidbody = GetComponent<Rigidbody>();
+        
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        Vector3 move = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
-        move = move.normalized * Time.fixedDeltaTime * _moveSpeed;
-        _rigidbody.velocity = move * 50;
-
-        //if (move != Vector3.zero)
-        //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(move), Time.fixedDeltaTime * _rotateSpeed);
-
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         //If the cast is true an the mouse is on the screen
@@ -53,7 +37,7 @@ public class PlayerMovementBehavior : MonoBehaviour
         }
 
 
-        transform.rotation = Quaternion.Lerp(_previousRotation, _targetRotation, _rotationTime += Time.deltaTime * _rotateSpeed);
+        transform.rotation = Quaternion.Lerp(_previousRotation, _targetRotation, _rotationTime += Time.deltaTime * 6.5f);
 
         //Set the new rotation without the x or z to only rotate on the y axis
         Quaternion newRot = transform.rotation;
