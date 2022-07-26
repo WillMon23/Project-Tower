@@ -24,7 +24,8 @@ public class TestFlashlightBehavior : MonoBehaviour
         {
             if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out RaycastHit hitinfo, 10f))
             {
-                Destroy(hitinfo.transform.gameObject);
+                if (hitinfo.transform.CompareTag("Ghost"))
+                    Destroy(hitinfo.transform.gameObject);
             }
 
             flashlight.gameObject.SetActive(true);
