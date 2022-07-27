@@ -4,7 +4,7 @@ using UnityEngine;
 
 //Will Mon
 //Date: 07/23/2022
-public class FieldOfView : MonoBehaviour
+public class FieldOfViewBehavior : MonoBehaviour
 {
     [SerializeField]
     private float _radius;
