@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossRotateBehavior : MonoBehaviour
 {
-    public float Speed = 5f;
+    public float _speed = 5f;
 
     private float _timer = 0f;
 
@@ -30,20 +30,24 @@ public class BossRotateBehavior : MonoBehaviour
     void Update()
     {
         //Checks the field of view and checks the timer
-        if (_boss.IsFollowing && _timedOut >= _timer)
+        if (_boss.IsFollowing)
         {
             Quaternion rot = Quaternion.LookRotation(_playerRef.transform.position - transform.position);
             Quaternion yRotation = Quaternion.identity;
 
             yRotation.eulerAngles = new Vector3(0, rot.eulerAngles.y, 0);
 
-            _rb.rotation = Quaternion.RotateTowards(transform.rotation, yRotation, Speed * Time.deltaTime);
+            _rb.rotation = Quaternion.RotateTowards(transform.rotation, yRotation, _speed * Time.deltaTime);
 
             _timer = 0;
         }
 
-        if (!_boss.IsFollowing && _timedOut >= _timer)
+        else if (!_boss.IsFollowing && _timedOut >= _timer)
+        {
             _timer += Time.deltaTime;
+            _timer = 0;
+        }
+
         
     }
 }

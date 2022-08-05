@@ -20,7 +20,7 @@ public class BossMovementBehavior : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         _rb.velocity = _direction * _speed;
     }

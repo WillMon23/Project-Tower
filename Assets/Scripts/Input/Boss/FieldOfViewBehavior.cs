@@ -22,12 +22,18 @@ public class FieldOfViewBehavior : MonoBehaviour
 
     private RoutineBehaviour.TimedAction _fovRoutine;
 
-    bool _canSeePlayer;
+    private bool _canSeePlayer;
+
+    private bool _onEnable = true;
 
     public float Radius { get => _radius; }
     public float Angle { get => _angle; }
     public bool CanSeePlayer { get => _canSeePlayer; }
     public GameObject PlayerRef { get => _playerRef; }
+
+    public void TurnOn () => _onEnable = true;
+
+    public void TurnOff () => _onEnable = false; 
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +56,8 @@ public class FieldOfViewBehavior : MonoBehaviour
     private void FieldOfViewCheck()
     {
         Collider[] rangeCheck = Physics.OverlapSphere(transform.position, _radius, _targetMask);
+
+        if (!_onEnable) return;
 
         if (rangeCheck.Length != 0)
         {
